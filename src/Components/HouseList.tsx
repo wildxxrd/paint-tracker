@@ -1,33 +1,59 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { collection, getFirestore, getDocs } from 'firebase/firestore'
+// interface House {
+//   houseList: Array<{
+//     lot: string
+//     color: string
+//   }>
+// }
+// const houseList: object[] = []
 
-interface ListProps {
-  isDisabled: boolean
-  houseList: Array<{
-    lot: string
-    color: string
-  }>
+interface House {
+  id: string
+  lot: string
+  color: string
 }
+const HouseList: React.FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
-const HouseList: React.FC<ListProps> = (props) => {
-  const { isDisabled, houseList } = props
-  console.log(houseList)
-  return !isDisabled
-    ? <div className="overflow-scroll max-h-96">
-    {houseList.map((house, index) => {
-      return (
-            <div className="flex justify-center bg-red-400 py-1" key={index}>
-            <div>
-                <div className="text-3xl font-bacasime">
-                <div>Lot# {house.lot}</div>
-                <div>Paint: {house.color}</div>
-                </div>
-            </div>
-            </div>
-      )
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [houseList, setHouseList] = useState<object[]>([])
+  const [house, setHouse] = useState<House[]>([])
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    const fetchData = async () => {
+      try {
+        const firestore = getFirestore()
+        const collectionRef = collection(firestore, 'Houses')
+        const snapshot = await getDocs(collectionRef)
+        const fetchedData = snapshot.docs.map((doc: { id: any, data: () => any }) => ({
+          id: doc.id,
+          ...doc.data()
+        })) as House[]
+
+        // Filter out duplicates based on a unique identifier (e.g., 'id' field)
+        const filteredData = fetchedData.filter((item, index, self) =>
+          self.findIndex(i => i.id === item.id) === index
+        )
+
+        setHouse(filteredData)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
     }
-    )}
-  </div>
-    : <div></div>
+
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    fetchData()
+  }, [])
+
+  return (
+    <div>
+      {house.map(item => (
+        <p key={item.id}>Lot#: {item.lot + ', House Color: ' + item.color}</p>
+      ))}
+    </div>
+  )
 }
 
 export default HouseList

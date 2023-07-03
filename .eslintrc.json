@@ -11,6 +11,8 @@
         "ecmaVersion": "latest",
         "project": ["tsconfig.json"]
     },
+        "ignorePatterns": ["firebase.ts"]
+    ,
     "plugins": [
         "react"
     ],

@@ -1,17 +1,27 @@
 import React, { useState } from 'react'
-import HouseList from './HouseList'
+import { firestore } from '../firebase'
+import { collection, addDoc } from 'firebase/firestore'
 import '../globalStyles.css'
 
-const HouseForm: React.FC = () => {
-  interface House {
-    lot: string
-    color: string
+interface House {
+  lot: string
+  color: string
+}
+
+async function addDocument (house: House): Promise<void> {
+  try {
+    const docRef = await addDoc(collection(firestore, 'Houses'), house)
+    console.log('House Added', docRef)
+  } catch (error) {
+    console.error('Error adding document:', error)
   }
+}
+
+const HouseForm: React.FC = () => {
   const [lotNumer, setLotNumber] = useState<string>('')
   const [paint, setPaint] = useState<string>('')
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isDisabled, setIsDisabled] = useState<boolean>(false)
-  const [houseList, setHouseList] = useState<House[]>([])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
@@ -19,11 +29,10 @@ const HouseForm: React.FC = () => {
       lot: lotNumer,
       color: paint
     }
-    setHouseList([...houseList, house])
+    void addDocument(house)
   }
   return (
     <div>
-      {houseList.length !== 0 ? <HouseList isDisabled={isDisabled} houseList={houseList} /> : <div></div>}
       <div className="flex justify-center bg-blue-400">
       <form
         className=" py-5 text-xl font-bacasime"
