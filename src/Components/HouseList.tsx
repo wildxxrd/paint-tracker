@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+
 import '../globalStyles.css'
-import { collection, getFirestore, getDocs } from 'firebase/firestore'
+import { collection, getFirestore, deleteDoc, getDocs, doc } from 'firebase/firestore'
 // interface House {
 //   houseList: Array<{
 //     lot: string
@@ -43,16 +46,31 @@ const HouseList: React.FC = () => {
         console.error('Error fetching data:', error)
       }
     }
-
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     fetchData()
   }, [])
+
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  async function deleteItem (itemId: string) {
+    try {
+      const firestore = getFirestore()
+      const itemRef = doc(firestore, 'Houses', itemId)
+      await deleteDoc(itemRef)
+
+      // Update the local state or perform any necessary actions after deletion
+      const updatedData = house.filter(item => item.id !== itemId)
+      setHouse(updatedData)
+    } catch (error) {
+      console.error('Error deleting item:', error)
+    }
+  }
 
   return (
     <div className=' flex justify-center'>
       <ul>
       {house.map(item => (
-        <li key={item.id} className='' >Lot#: {item.lot + ', House Color: ' + item.color}</li>
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        <li key={item.id} className='' >Lot#: {item.lot + ', House Color: ' + item.color + '   '}<FontAwesomeIcon className='cursor-pointer' color='red' icon={faTrash} onClick={async () => { await deleteItem(item.id) }} /> </li>
       ))}
       </ul>
     </div>
