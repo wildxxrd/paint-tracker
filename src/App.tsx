@@ -8,14 +8,14 @@ import HouseList from './Components/HouseList'
 
 const App: React.FC = () => {
   return (
-    <>
+    <div className='bg-[#FFF6F4] h-screen w-screen'>
     <Header />
     <NavBarComponent />
     <Routes>
       <Route path='/' element={ <MainComponent /> }/>
       <Route path='/houses' element={<HouseList />}/>
     </Routes>
-    </>
+    </div>
   )
 }
 

@@ -21,8 +21,6 @@ async function addDocument (house: House): Promise<void> {
 const HouseForm: React.FC = () => {
   const [lotNumer, setLotNumber] = useState<string>('')
   const [paint, setPaint] = useState<string>('')
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isDisabled, setIsDisabled] = useState<boolean>(false)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
@@ -38,7 +36,7 @@ const HouseForm: React.FC = () => {
     <div>
       <div className="flex justify-center bg-blue-400">
       <form
-        className=" py-5 text-xl font-bacasime"
+        className=" py-5 text-2xl font-bacasime"
         action=""
         onSubmit={handleSubmit}
       >
