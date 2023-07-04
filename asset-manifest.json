@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/paint-tracker/static/css/main.035d686e.css",
+    "main.js": "/paint-tracker/static/js/main.c10d9afd.js",
+    "index.html": "/paint-tracker/index.html",
+    "main.035d686e.css.map": "/paint-tracker/static/css/main.035d686e.css.map",
+    "main.c10d9afd.js.map": "/paint-tracker/static/js/main.c10d9afd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.035d686e.css",
+    "static/js/main.c10d9afd.js"
+  ]
+}
