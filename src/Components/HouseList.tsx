@@ -66,8 +66,9 @@ const HouseList: React.FC = () => {
   }
 
   return (
-    <div className=' flex justify-center'>
+    <div className=' flex justify-center font-bacasime'>
       <ul>
+        <li><h1 className='text-2xl px-3 py-2'>List of Houses</h1></li>
       {house.map(item => (
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         <li key={item.id} className='' >Lot#: {item.lot + ', House Color: ' + item.color + '   '}<FontAwesomeIcon className='cursor-pointer' color='red' icon={faTrash} onClick={async () => { await deleteItem(item.id) }} /> </li>
