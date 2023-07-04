@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react'
 import { firestore } from '../firebase'
 import { collection, addDoc } from 'firebase/firestore'
 import '../globalStyles.css'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 interface House {
   lot: string
   color: string
@@ -11,7 +13,6 @@ interface House {
 async function addDocument (house: House): Promise<void> {
   try {
     const docRef = await addDoc(collection(firestore, 'Houses'), house)
-    console.log('House Added', docRef)
   } catch (error) {
     console.error('Error adding document:', error)
   }
@@ -65,7 +66,9 @@ const HouseForm: React.FC = () => {
           }}
         />
         &nbsp;&nbsp;
-        <button type="submit">Add</button>
+        <button type="submit">
+        <FontAwesomeIcon size='xl' icon={faPlusCircle} />
+        </button>
       </form>
     </div>
     </div>
