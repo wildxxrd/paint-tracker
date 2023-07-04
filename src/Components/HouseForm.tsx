@@ -30,6 +30,8 @@ const HouseForm: React.FC = () => {
       color: paint
     }
     void addDocument(house)
+    setLotNumber('')
+    setPaint('')
   }
   return (
     <div>
@@ -45,6 +47,7 @@ const HouseForm: React.FC = () => {
           type="text"
           name="lot_number"
           id="lot_number"
+          value={lotNumer}
           onChange={(e) => {
             setLotNumber(e.target.value)
           }}
@@ -56,12 +59,13 @@ const HouseForm: React.FC = () => {
           type="text"
           name="paint_number"
           id="paint_number"
+          value={paint}
           onChange={(e) => {
             setPaint(e.target.value)
           }}
         />
         &nbsp;&nbsp;
-        <button type="submit">Submit</button>
+        <button type="submit">Add</button>
       </form>
     </div>
     </div>

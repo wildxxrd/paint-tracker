@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import '../globalStyles.css'
 import { collection, getFirestore, getDocs } from 'firebase/firestore'
 // interface House {
 //   houseList: Array<{
@@ -48,10 +49,12 @@ const HouseList: React.FC = () => {
   }, [])
 
   return (
-    <div>
+    <div className=' flex justify-center'>
+      <ul>
       {house.map(item => (
-        <p key={item.id}>Lot#: {item.lot + ', House Color: ' + item.color}</p>
+        <li key={item.id} className='' >Lot#: {item.lot + ', House Color: ' + item.color}</li>
       ))}
+      </ul>
     </div>
   )
 }
