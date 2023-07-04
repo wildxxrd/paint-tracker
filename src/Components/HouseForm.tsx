@@ -42,7 +42,7 @@ const HouseForm: React.FC = () => {
       >
         <label htmlFor="lot_number">Lot# </label>
         <input
-        size={10}
+        size={9}
           type="text"
           name="lot_number"
           id="lot_number"
@@ -54,7 +54,7 @@ const HouseForm: React.FC = () => {
         &nbsp;&nbsp;
         <label htmlFor="paint_number">Paint: </label>
         <input
-        size={10}
+        size={9}
           type="text"
           name="paint_number"
           id="paint_number"
