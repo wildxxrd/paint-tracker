@@ -4,13 +4,6 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 import '../globalStyles.css'
 import { collection, getFirestore, deleteDoc, getDocs, doc } from 'firebase/firestore'
-// interface House {
-//   houseList: Array<{
-//     lot: string
-//     color: string
-//   }>
-// }
-// const houseList: object[] = []
 
 interface House {
   id: string
@@ -18,10 +11,6 @@ interface House {
   color: string
 }
 const HouseList: React.FC = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [houseList, setHouseList] = useState<object[]>([])
   const [house, setHouse] = useState<House[]>([])
 
   useEffect(() => {
@@ -66,12 +55,12 @@ const HouseList: React.FC = () => {
   }
 
   return (
-    <div className=' flex justify-center font-bacasime'>
+    <div className=' flex justify-center bg-blue-400 '>
       <ul>
-        <li><h1 className='text-2xl px-3 py-2'>List of Houses</h1></li>
+        <li><h1 className='text-4xl font-bacasime border-b-2 px-3 py-2'>List of Houses</h1></li>
       {house.map(item => (
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        <li key={item.id} className='' >Lot#: {item.lot + ', House Color: ' + item.color + '   '}<FontAwesomeIcon className='cursor-pointer' color='red' icon={faTrash} onClick={async () => { await deleteItem(item.id) }} /> </li>
+        <li key={item.id} className='text-2xl bg-[#5A96E3] text-[#FFF6F4] px-3 py-4 my-4 border-b-2' >Lot#: {item.lot + ', House Color: ' + item.color + '   '}<FontAwesomeIcon className='cursor-pointer' color='red' icon={faTrash} onClick={async () => { await deleteItem(item.id) }} /> </li>
       ))}
       </ul>
     </div>
