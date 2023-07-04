@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/paint-tracker/static/css/main.766ac906.css",
-    "main.js": "/paint-tracker/static/js/main.f75ec07b.js",
+    "main.js": "/paint-tracker/static/js/main.25d8a7f6.js",
     "index.html": "/paint-tracker/index.html",
     "main.766ac906.css.map": "/paint-tracker/static/css/main.766ac906.css.map",
-    "main.f75ec07b.js.map": "/paint-tracker/static/js/main.f75ec07b.js.map"
+    "main.25d8a7f6.js.map": "/paint-tracker/static/js/main.25d8a7f6.js.map"
   },
   "entrypoints": [
     "static/css/main.766ac906.css",
-    "static/js/main.f75ec07b.js"
+    "static/js/main.25d8a7f6.js"
   ]
 }
