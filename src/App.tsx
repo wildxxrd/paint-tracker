@@ -11,10 +11,10 @@ const App: React.FC = () => {
     <>
     <Header />
     <NavBarComponent />
-    <Routes>
+      <Routes>
       <Route path='/' element={ <MainComponent /> }/>
       <Route path='/houses' element={<HouseList />}/>
-    </Routes>
+      </Routes>
     </>
   )
 }
