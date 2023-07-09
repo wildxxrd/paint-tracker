@@ -9,6 +9,7 @@ interface House {
   id: string
   lot: string
   color: string
+  location: string
 }
 const HouseList: React.FC = () => {
   const [house, setHouse] = useState<House[]>([])
@@ -60,7 +61,11 @@ const HouseList: React.FC = () => {
         <li><h1 className='text-4xl font-bacasime border-b-2 px-3 py-2'>List of Houses</h1></li>
       {house.map(item => (
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        <li key={item.id} className='text-2xl bg-[#5A96E3] text-[#FFF6F4] px-3 py-4 my-4 border-b-2' >Lot#: {item.lot + ', House Color: ' + item.color + '   '}<FontAwesomeIcon className='cursor-pointer' color='red' icon={faTrash} onClick={async () => { await deleteItem(item.id) }} /> </li>
+        item.location === undefined
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          ? <li key={item.id} className='text-2xl bg-[#5A96E3] text-[#FFF6F4] px-3 py-4 my-4 border-b-2' >Lot#: {item.lot + ', House Color: ' + item.color + '   '}<FontAwesomeIcon className='cursor-pointer' color='red' icon={faTrash} onClick={async () => { await deleteItem(item.id) }} /> </li>
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          : <li key={item.id} className='text-2xl bg-[#5A96E3] text-[#FFF6F4] px-3 py-4 my-4 border-b-2' >Lot#: {item.lot + ', House Color: ' + item.color + ', ' + 'Location: ' + item.location + '   '}<FontAwesomeIcon className='cursor-pointer' color='red' icon={faTrash} onClick={async () => { await deleteItem(item.id) }} /> </li>
       ))}
       </ul>
     </div>

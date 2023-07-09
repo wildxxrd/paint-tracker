@@ -8,6 +8,7 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 interface House {
   lot: string
   color: string
+  location: string
 }
 
 async function addDocument (house: House): Promise<void> {
@@ -21,16 +22,19 @@ async function addDocument (house: House): Promise<void> {
 const HouseForm: React.FC = () => {
   const [lotNumer, setLotNumber] = useState<string>('')
   const [paint, setPaint] = useState<string>('')
+  const [location, setLocation] = useState<string>('')
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
     const house: House = {
       lot: lotNumer,
-      color: paint
+      color: paint,
+      location
     }
     void addDocument(house)
     setLotNumber('')
     setPaint('')
+    setLocation('')
   }
   return (
     <div>
@@ -62,6 +66,19 @@ const HouseForm: React.FC = () => {
           onChange={(e) => {
             setPaint(e.target.value)
           }}
+        />
+        &nbsp;&nbsp;
+        <label htmlFor="house_location">Location: </label>
+        <input
+        size={9}
+          type="text"
+          name="house_location"
+          id="house_location"
+          value={location}
+          onChange={(e) => {
+            setLocation(e.target.value)
+          }
+          }
         />
         &nbsp;&nbsp;
         <button type="submit">
