@@ -44,11 +44,11 @@ const HouseForm: React.FC = () => {
         action=""
         onSubmit={handleSubmit}
       >
-        <label htmlFor="lot_number">Lot# </label>
         <input
         size={9}
           type="text"
           name="lot_number"
+          placeholder='Lot#'
           id="lot_number"
           value={lotNumer}
           onChange={(e) => {
@@ -56,23 +56,23 @@ const HouseForm: React.FC = () => {
           }}
         />
         &nbsp;&nbsp;
-        <label htmlFor="paint_number">Paint: </label>
         <input
         size={9}
           type="text"
           name="paint_number"
           id="paint_number"
+          placeholder='Paint'
           value={paint}
           onChange={(e) => {
             setPaint(e.target.value)
           }}
         />
         &nbsp;&nbsp;
-        <label htmlFor="house_location">Location: </label>
         <input
         size={9}
           type="text"
           name="house_location"
+          placeholder='Location'
           id="house_location"
           value={location}
           onChange={(e) => {
