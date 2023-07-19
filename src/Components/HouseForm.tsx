@@ -38,17 +38,18 @@ const HouseForm: React.FC = () => {
   }
   return (
     <div>
-      <div className="flex justify-center bg-blue-400">
+      <div className="flex flex-glow justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
       <form
-        className=" py-5 text-2xl font-bacasime"
+        className="grid py-10 my-10 text-2xl font-bacasime"
         action=""
         onSubmit={handleSubmit}
       >
-        <label htmlFor="lot_number">Lot# </label>
         <input
-        size={9}
+          size={35}
+          style={{ height: '50px' }}
           type="text"
           name="lot_number"
+          placeholder='Lot#'
           id="lot_number"
           value={lotNumer}
           onChange={(e) => {
@@ -56,23 +57,25 @@ const HouseForm: React.FC = () => {
           }}
         />
         &nbsp;&nbsp;
-        <label htmlFor="paint_number">Paint: </label>
         <input
-        size={9}
+          size={35}
+          style={{ height: '50px' }}
           type="text"
           name="paint_number"
           id="paint_number"
+          placeholder='Paint'
           value={paint}
           onChange={(e) => {
             setPaint(e.target.value)
           }}
         />
         &nbsp;&nbsp;
-        <label htmlFor="house_location">Location: </label>
         <input
-        size={9}
+          size={35}
+          style={{ height: '50px' }}
           type="text"
           name="house_location"
+          placeholder='Location'
           id="house_location"
           value={location}
           onChange={(e) => {
@@ -81,8 +84,8 @@ const HouseForm: React.FC = () => {
           }
         />
         &nbsp;&nbsp;
-        <button type="submit">
-        <FontAwesomeIcon size='xl' icon={faPlusCircle} />
+        <button type="submit" className='py-6'>
+        <FontAwesomeIcon color='white' size='4x' icon={faPlusCircle} />
         </button>
       </form>
     </div>
