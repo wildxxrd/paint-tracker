@@ -45,7 +45,7 @@ const HouseForm: React.FC = () => {
         onSubmit={handleSubmit}
       >
         <input
-          size={35}
+          size={25}
           style={{ height: '50px' }}
           type="text"
           name="lot_number"
@@ -58,7 +58,7 @@ const HouseForm: React.FC = () => {
         />
         &nbsp;&nbsp;
         <input
-          size={35}
+          size={25}
           style={{ height: '50px' }}
           type="text"
           name="paint_number"
@@ -71,7 +71,7 @@ const HouseForm: React.FC = () => {
         />
         &nbsp;&nbsp;
         <input
-          size={35}
+          size={25}
           style={{ height: '50px' }}
           type="text"
           name="house_location"
