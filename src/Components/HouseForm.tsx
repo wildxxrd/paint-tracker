@@ -52,6 +52,7 @@ const HouseForm: React.FC = () => {
           placeholder='Lot#'
           id="lot_number"
           value={lotNumer}
+          required
           onChange={(e) => {
             setLotNumber(e.target.value)
           }}
@@ -65,6 +66,7 @@ const HouseForm: React.FC = () => {
           id="paint_number"
           placeholder='Paint'
           value={paint}
+          required
           onChange={(e) => {
             setPaint(e.target.value)
           }}
