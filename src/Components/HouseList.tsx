@@ -56,16 +56,16 @@ const HouseList: React.FC = () => {
   }
 
   return (
-    <div className=' flex justify-center bg-blue-400 '>
+    <div className=' flex justify-center bg-gradient-to-r from-cyan-500 to-blue-500'>
       <ul>
-        <li><h1 className='text-4xl font-bacasime border-b-2 px-3 py-2'>List of Houses</h1></li>
+        <li><h1 className='text-5xl text-white font-bacasime border-b-2 px-3 py-2'>List of Houses</h1></li>
       {house.map(item => (
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         item.location === undefined
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          ? <li key={item.id} className='text-2xl bg-[#5A96E3] text-[#FFF6F4] px-3 py-4 my-4 border-b-2' >Lot#: {item.lot + ', House Color: ' + item.color + '   '}<FontAwesomeIcon className='cursor-pointer' color='red' icon={faTrash} onClick={async () => { await deleteItem(item.id) }} /> </li>
+          ? <li key={item.id} className='text-3xl  bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% text-[#FFF6F4] px-3 py-4 my-4 border-b-2' >Lot#: {item.lot + ', House Color: ' + item.color + '   '}<FontAwesomeIcon className='cursor-pointer' color='red' icon={faTrash} onClick={async () => { await deleteItem(item.id) }} /> </li>
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          : <li key={item.id} className='text-2xl bg-[#5A96E3] text-[#FFF6F4] px-3 py-4 my-4 border-b-2' >Lot#: {item.lot + ', House Color: ' + item.color + ', ' + 'Location: ' + item.location + '   '}<FontAwesomeIcon className='cursor-pointer' color='red' icon={faTrash} onClick={async () => { await deleteItem(item.id) }} /> </li>
+          : <li key={item.id} className='text-3xl bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% text-[#FFF6F4] px-3 py-4 my-4 border-b-2' >Lot#: {item.lot + ', House Color: ' + item.color + ', ' + 'Location: ' + item.location + '   '}<FontAwesomeIcon className='cursor-pointer' color='red' icon={faTrash} onClick={async () => { await deleteItem(item.id) }} /> </li>
       ))}
       </ul>
     </div>
